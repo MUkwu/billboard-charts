@@ -506,6 +506,7 @@ class ChartData:
 
 def _get_session_with_retries(max_retries):
     session = requests.Session()
+    session.headers.update({'User-Agent': 'Mozilla/5.0'}) # Added to change User-Agent
     session.mount(
         "https://www.billboard.com",
         requests.adapters.HTTPAdapter(max_retries=max_retries),
